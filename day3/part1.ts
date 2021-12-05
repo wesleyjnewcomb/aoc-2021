@@ -2,8 +2,8 @@ import { read } from "../helpers";
 
 
 read("input.txt").then(rawInput => {
-  const bitLength = rawInput.indexOf("\r");
-  const rowLength = bitLength + 2
+  const bitLength = rawInput.indexOf("\n");
+  const rowLength = bitLength + 1
   const rowCount = rawInput.length / rowLength;
   const gammaBits = new Array(bitLength);
   for (let bitIndex = 0; bitIndex < bitLength; bitIndex++) {
@@ -25,8 +25,6 @@ read("input.txt").then(rawInput => {
         }
       }
     }
-    console.log("0s", zeroCount);
-    console.log("1s", oneCount)
   }
   const gamma = parseInt(gammaBits.join(''), 2);
   const bitMask = (1 << bitLength) - 1

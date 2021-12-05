@@ -43,7 +43,7 @@ class BingoCard {
 }
 
 function parseCard(cardStr: string): BingoCard {
-  const data = cardStr.split('\r\n')
+  const data = cardStr.split('\n')
                       .map(rowStr => 
                         rowStr.split(' ').filter(x => !!x)
                       )
@@ -52,7 +52,7 @@ function parseCard(cardStr: string): BingoCard {
 
 read("input.txt").then(data => {
   console.time("solution")
-  const blocks = data.split('\r\n\r\n');
+  const blocks = data.split('\n\n');
   const commands = blocks[0].split(',');
   const cardStrings = blocks.slice(1);
   const cards: BingoCard[] = []
